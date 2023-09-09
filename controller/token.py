@@ -15,7 +15,6 @@ class TokenType(Enum):
     LETTER = auto()
     NUMBER = auto()
     
-    
     # Delimiters
     COMMA = auto()
     COLON = auto()
@@ -33,3 +32,9 @@ class Token(NamedTuple):
     
     def __str__(self) -> str:
         return f"Type: { self.token_type }, Literal: { self.literal }"
+    
+    def getLiteral(self) -> str:
+        return self.literal
+    
+    def getType(self) -> TokenType:
+        return self.token_type

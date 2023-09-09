@@ -1,0 +1,33 @@
+digraph Operaciones {
+	B0 [label="suma\l9.82"]
+	B1 [label=4.5]
+	B0 -> B1
+	B2 [label=5.32]
+	B0 -> B2
+	B3 [label="resta\l-995.5"]
+	B4 [label=4.5]
+	B3 -> B4
+	B5 [label="potencia\l1000.0"]
+	B6 [label=10.0]
+	B5 -> B6
+	B7 [label=3.0]
+	B5 -> B7
+	B3 -> B5
+	B8 [label="suma\l6.213996663600558"]
+	B9 [label="seno\l0.8939966636005579"]
+	B10 [label=90.0]
+	B9 -> B10
+	B8 -> B9
+	B11 [label=5.32]
+	B8 -> B11
+	B12 [label="multiplicacion\l21.0"]
+	B13 [label=7.0]
+	B12 -> B13
+	B14 [label=3.0]
+	B12 -> B14
+	B15 [label="division\l5.0"]
+	B16 [label=15.0]
+	B15 -> B16
+	B17 [label=3.0]
+	B15 -> B17
+}

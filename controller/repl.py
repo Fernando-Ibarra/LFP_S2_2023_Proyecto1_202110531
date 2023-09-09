@@ -1,8 +1,10 @@
-from models.lexer import Lexer
-from models.token import (
+from controller.lexer import Lexer
+from controller.token import (
     Token,
     TokenType
 )
+from controller.parser import start_evaluate
+
 
 EOF_TOKEN: Token = Token(TokenType.EOF, '')
 
@@ -17,3 +19,5 @@ def start_repl() -> None:
     while (token := lexer.next_token()) != EOF_TOKEN:
         tokens.append(token)
         print(token)
+    
+    start_evaluate(tokens)
