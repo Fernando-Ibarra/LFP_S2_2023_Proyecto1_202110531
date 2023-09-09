@@ -13,8 +13,8 @@ digraph Operaciones {
 	B7 [label=3.0]
 	B5 -> B7
 	B3 -> B5
-	B8 [label="suma\l6.213996663600558"]
-	B9 [label="seno\l0.8939966636005579"]
+	B8 [label="suma\l6.32"]
+	B9 [label="seno\l1.0"]
 	B10 [label=90.0]
 	B9 -> B10
 	B8 -> B9

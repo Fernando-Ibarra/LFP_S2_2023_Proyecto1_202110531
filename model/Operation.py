@@ -85,13 +85,13 @@ class Operation:
             res = 1 / val1
         
         if typeOperation == "seno":
-            res = np.sin(val1)
+            res = np.sin(np.deg2rad(val1))
         
         if typeOperation == "coseno":
-            res = np.cos(val1)
+            res = np.cos(np.deg2rad(val1))
         
         if typeOperation == "tangente":
-            res = np.tan(val1)
+            res = np.tan(np.deg2rad(val1))
         
         if typeOperation == "mod":
             res = val1 % val2
