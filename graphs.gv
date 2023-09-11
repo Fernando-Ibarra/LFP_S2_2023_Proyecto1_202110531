@@ -1,0 +1,34 @@
+digraph Operaciones {
+	fillcolor=white fontcolor=black fontname=arial fontsize=30 label=Operaciones rankdir=TB size="5,8" style=filled
+	B0 [label="suma\l9.82" fillcolor=blue fontcolor=white shape=circle style=filled]
+	B1 [label=4.5 fillcolor=blue fontcolor=white shape=circle style=filled]
+	B0 -> B1
+	B2 [label=5.32 fillcolor=blue fontcolor=white shape=circle style=filled]
+	B0 -> B2
+	B3 [label="resta\l-995.5" fillcolor=blue fontcolor=white shape=circle style=filled]
+	B4 [label=4.5 fillcolor=blue fontcolor=white shape=circle style=filled]
+	B3 -> B4
+	B5 [label="potencia\l1000.0" fillcolor=blue fontcolor=white shape=circle style=filled]
+	B6 [label=10.0 fillcolor=blue fontcolor=white shape=circle style=filled]
+	B5 -> B6
+	B7 [label=3.0 fillcolor=blue fontcolor=white shape=circle style=filled]
+	B5 -> B7
+	B3 -> B5
+	B8 [label="suma\l6.32" fillcolor=blue fontcolor=white shape=circle style=filled]
+	B9 [label="seno\l1.0" fillcolor=blue fontcolor=white shape=circle style=filled]
+	B10 [label=90.0 fillcolor=blue fontcolor=white shape=circle style=filled]
+	B9 -> B10
+	B8 -> B9
+	B11 [label=5.32 fillcolor=blue fontcolor=white shape=circle style=filled]
+	B8 -> B11
+	B12 [label="multiplicacion\l21.0" fillcolor=blue fontcolor=white shape=circle style=filled]
+	B13 [label=7.0 fillcolor=blue fontcolor=white shape=circle style=filled]
+	B12 -> B13
+	B14 [label=3.0 fillcolor=blue fontcolor=white shape=circle style=filled]
+	B12 -> B14
+	B15 [label="division\l5.0" fillcolor=blue fontcolor=white shape=circle style=filled]
+	B16 [label=15.0 fillcolor=blue fontcolor=white shape=circle style=filled]
+	B15 -> B16
+	B17 [label=3.0 fillcolor=blue fontcolor=white shape=circle style=filled]
+	B15 -> B17
+}

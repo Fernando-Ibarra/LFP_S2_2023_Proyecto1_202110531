@@ -1,7 +1,11 @@
-# We'll make a view for the main window of the application with python using tkinter.
 from tkinter import *
 from tkinter import filedialog, messagebox
 import os
+
+from controller.repl import start_repl
+from controller.errors import processErrors
+from controller.graphs import make_graphviz
+from controller.parser import operationList
 
 class MainMenu():
     
@@ -9,16 +13,14 @@ class MainMenu():
     
     def __init__(self) -> None:
         self.mainMenu.title("Menu Principal") # title
-        self.mainMenu.geometry("1450x725") # width x height
+        self.mainMenu.geometry("1150x740") # width x height
         self.mainMenu.config(bg="#1E1E1E") # bg = background
         self.mainMenu.iconbitmap(os.path.abspath("assets/usac_logo.ico")) # icon
         self.mainMenu.resizable(0,0) # resizable(width,height) 0 = False, 1 = True
         self.originalPath = ""
-    
-    def show(self):
         self.mainUI()
         self.mainMenu.mainloop() # mainloop() is an infinite loop used to run the application, wait for an event to occur and process the event as long as the window is not closed.
-    
+
     def mainUI(self):
         
         titleFont = ("Arial", 30, "bold")
@@ -28,12 +30,12 @@ class MainMenu():
             text="Aplicación Numérica con Análisis Léxico",
             font=titleFont,
             bg="#1E1E1E",
-            fg="white"
+            fg="white",
         ).grid(
             row=0,
             column=0,
             columnspan=10,
-            ipadx=300,
+            ipadx=200,
             pady=10
         )
         
@@ -52,9 +54,10 @@ class MainMenu():
             self.mainMenu,
             text="Analizar", 
             width=10,
+            command=self.analyzeFile
         ).grid(
             row=2,
-            column=1,
+            column=1
         )
         
         # Button 2 - Generate the errors
@@ -62,6 +65,7 @@ class MainMenu():
             self.mainMenu,
             text="Errores", 
             width=10,
+            command=self.generateErrors
         ).grid(
             row=2,
             column=2,
@@ -72,17 +76,25 @@ class MainMenu():
             self.mainMenu,
             text="Reporte", 
             width=10,
+            command=self.generateGraphviz
         ).grid(
             row=2,
             column=3,
         )
         
+        self.emptyRow2 = Label(self.mainMenu, text="", bg="#1E1E1E", fg="white")
+        self.emptyRow2.grid(row=3, column=0, columnspan=10, ipadx=5, ipady=5)
+        
+        
         self.editor = Text(self.mainMenu, width=150, height=25, bg="white", fg="black", font=("Arial", 10))
-        self.editor.grid(row=3, column=0, columnspan=5, padx=5)
+        self.editor.grid(row=4, column=0, columnspan=10, padx=5, ipadx=5, ipady=5)
+        
+        self.emptyRow = Label(self.mainMenu, text="", bg="#1E1E1E", fg="white")
+        self.emptyRow.grid(row=5, column=0, columnspan=10, ipadx=5, ipady=5)
         
         # block the console
-        self.console = Text(self.mainMenu, width=150, height=10, bg="black", fg="white", state="disabled", font=("Arial", 10))
-        self.console.grid(row=5, column=0, columnspan=5, padx=5)
+        self.console = Text(self.mainMenu, width=150, height=7, bg="black", fg="white", state="disabled", font=("Arial", 10))
+        self.console.grid(row=6, column=0, columnspan=10, padx=5, ipadx=5, ipady=5)
 
 
     # set text to the console
@@ -98,27 +110,63 @@ class MainMenu():
     
     # get text from the editor
     def getEditor(self):
-        return self.editor.get("1.0", END)
+        return str(self.editor.get("1.0", END))
+
+    def analyzeFile(self):
+        try:
+            jsonString = self.getEditor()
+            tokens = start_repl(jsonString)
+            for token in tokens:
+                self.setConsole(str(token))
+                self.setConsole("\n")
+
+            for ope in operationList:
+                self.setConsole(str(ope.traverse()))
+                self.setConsole("\n")
+        except:
+            messagebox.showinfo(title="Aviso", message="Ocurrio un error al analizar el archivo")
+            
+    def generateErrors(self):
+        try:
+            processErrors()
+            dir_path = os.path.dirname(os.path.realpath(__file__))
+            self.setConsole("Archivo de errores generado correctamente: " + dir_path.replace("\\view", '') + "\errors.json" + "\n")
+        except:
+            messagebox.showinfo(title="Aviso", message="Ocurrio un error al generar el archivo de errores")
+        
+    def generateGraphviz(self):
+        # try:
+        #     make_graphviz()
+        #     dir_path = os.path.dirname(os.path.realpath(__file__))
+        #     self.setConsole("Archivo de reporte generado correctamente: " + dir_path.replace("\\view", '') + "\graphs.gv" + "\n")
+        # except:
+        #     messagebox.showinfo(title="Aviso", message="Ocurrio un error al generar el reporte")
+        make_graphviz()
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        self.setConsole("Archivo de reporte generado correctamente: " + dir_path.replace("\\view", '') + "\graphs.gv" + "\n")
 
     def openFile(self):
-        fileSearch = filedialog.askopenfilename(
-            initialdir="./",
-            title="Open File",
-            filetypes=(
-                ("Text Files", "*.txt"),
-                ("JSON Files", "*.json"),
-                ("All Files", "*.*")
+        try:
+            fileSearch = filedialog.askopenfilename(
+                initialdir="./",
+                title="Open File",
+                filetypes=(
+                    ("JSON Files", "*.json"),
+                    ("Text Files", "*.txt"),
+                    ("All Files", "*.*")
+                )
             )
-        )
-        
-        filepath = os.path.abspath(fileSearch)
-        self.originalPath = filepath
-        # open the file and put it on the editor
-        with open(filepath, "r") as file:
-            file = file.read()
-            self.setEditor(file)
-            
-        self.setConsole("File Upload: " + filepath + "\n")
+
+            filepath = os.path.abspath(fileSearch)
+            self.originalPath = filepath
+            # open the file and put it on the editor
+            with open(filepath, "r") as file:
+                file = file.read()
+                self.setEditor(file)
+
+            self.setConsole("Archivo cargado correctamente: " + filepath + "\n")
+        except:
+            messagebox.showinfo(title="Aviso", message="Ocurrio un error al abrir el archivo")
         
     def saveFile(self):
         try:
