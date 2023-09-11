@@ -16,11 +16,11 @@ class MainMenu():
         self.mainMenu.geometry("1150x740") # width x height
         self.mainMenu.config(bg="#1E1E1E") # bg = background
         self.mainMenu.iconbitmap(os.path.abspath("assets/usac_logo.ico")) # icon
-        self.mainMenu.resizable(0,0) # resizable(width,height) 0 = False, 1 = True
+        self.mainMenu.resizable(0,0)
         self.originalPath = ""
         self.mainUI()
-        self.mainMenu.mainloop() # mainloop() is an infinite loop used to run the application, wait for an event to occur and process the event as long as the window is not closed.
-
+        self.mainMenu.mainloop() 
+        
     def mainUI(self):
         
         titleFont = ("Arial", 30, "bold")
@@ -135,15 +135,12 @@ class MainMenu():
             messagebox.showinfo(title="Aviso", message="Ocurrio un error al generar el archivo de errores")
         
     def generateGraphviz(self):
-        # try:
-        #     make_graphviz()
-        #     dir_path = os.path.dirname(os.path.realpath(__file__))
-        #     self.setConsole("Archivo de reporte generado correctamente: " + dir_path.replace("\\view", '') + "\graphs.gv" + "\n")
-        # except:
-        #     messagebox.showinfo(title="Aviso", message="Ocurrio un error al generar el reporte")
-        make_graphviz()
-        dir_path = os.path.dirname(os.path.realpath(__file__))
-        self.setConsole("Archivo de reporte generado correctamente: " + dir_path.replace("\\view", '') + "\graphs.gv" + "\n")
+        try:
+            make_graphviz()
+            dir_path = os.path.dirname(os.path.realpath(__file__))
+            self.setConsole("Archivo de reporte generado correctamente: " + dir_path.replace("\\view", '') + "\graphs.gv" + "\n")
+        except:
+            messagebox.showinfo(title="Aviso", message="Ocurrio un error al generar el reporte")
 
     def openFile(self):
         try:

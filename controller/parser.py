@@ -33,25 +33,21 @@ def start_evaluate(tokens_input = [], prevOperation = None) -> Operation:
                         title: str = tokens[1].getLiteral()
                         title: str = title.replace('"', '')
                         configurationSettings.title = title
-                        print(configurationSettings.title)
 
                     if token.getType() == TokenType.LETTER and token.getLiteral() =='"fondo"':
                         backgroundColor: str = tokens[1].getLiteral()
                         backgroundColor: str = backgroundColor.replace('"', '')
                         configurationSettings.backgroundColor = backgroundColor
-                        print(configurationSettings.backgroundColor)
 
                     if token.getType() == TokenType.LETTER and token.getLiteral() =='"fuente"':
                         fontStyle: str = tokens[1].getLiteral()
                         fontStyle: str = fontStyle.replace('"', '')
                         configurationSettings.fontStyle = fontStyle
-                        print(configurationSettings.fontStyle)
 
                     if token.getType() == TokenType.LETTER and token.getLiteral() =='"forma"':
                         style: str = tokens[1].getLiteral()
                         style: str = style.replace('"', '')
                         configurationSettings.style = style
-                        print(configurationSettings.style)
                 pass
         
             return currentOperation
