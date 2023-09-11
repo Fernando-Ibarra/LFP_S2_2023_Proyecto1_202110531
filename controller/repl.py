@@ -5,7 +5,6 @@ from controller.token import (
 )
 from controller.parser import start_evaluate
 
-
 EOF_TOKEN: Token = Token(TokenType.EOF, '')
 
 def start_repl() -> None:
