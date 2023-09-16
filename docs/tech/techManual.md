@@ -98,22 +98,6 @@ Donde:
 | 26 | #9 |
 
 ### Cálculo de Transiciones
-$S_0= \left \{ 1, 3, 5, 7, 9, 11, 13, 18, 21 \right\}$
-$Trans\left( S_0, \{ \right) = sig \left( 1 \right) = \left\{ 2\right\} =S_1^{*}$
-$Trans\left( S_0, \} \right) = sig \left( 3 \right) = \left\{ 4 \right\} =S_2^{*}$
-$Trans\left( S_0, [ \right) = sig \left( 5 \right) = \left\{ 6 \right\} =S_3^{*}$
-$Trans\left( S_0, ] \right) = sig \left( 7 \right) = \left\{ 8 \right\} =S_4^{*}$
-$Trans\left( S_0, : \right) = sig \left( 9 \right) = \left\{ 10 \right\} =S_5^{*}$
-$Trans\left( S_0, , \right) = sig \left(11 \right) = \left\{ 12 \right\} =S_6^{*}$
-$Trans\left( S_0, ^{"} \right) = sig \left(13 \right) = \left\{ 14 \right\} =S_7$
-$Trans\left( S_0, N \right) = sig \left(18 \right) \cup sig \left(21 \right) = \left\{ 19,20,22,23 \right\} =S_8^{*}$
-$Trans\left( S_7, D \right) = sig \left(14 \right) = \left\{ 15,16 \right\} =S_9$
-$Trans\left( S_9, D \right) = sig \left(15 \right) = \left\{ 15,16 \right\} =S_9$
-$Trans\left( S_9, ^{"} \right) = sig \left(16 \right) = \left\{ 17 \right\} =S_{10}^{*}$
-$Trans\left( S_8, N \right) = sig \left(19 \right) \cup sig \left(22 \right)= \left\{ 20,22,23 \right\} =S_8$
-$Trans\left( S_8, p \right) = sig \left(23 \right) = \left\{ 24 \right\} =S_{11}$
-$Trans\left( S_{11}, N \right) = sig \left(24 \right) = \left\{ 25,26 \right\} =S_{12}^{*}$
-$Trans\left( S_{12}, N \right) = sig \left(25 \right) = \left\{26 \right\} =S_{12}$
 
 ### AFD
 ![AFD](../assets/AFD.jpg)
