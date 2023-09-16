@@ -9,7 +9,7 @@ def processErrors():
     error_dict['errors'] = []
 
     # create a json file
-    with open('errors.json', 'w') as error_file:
+    with open('RESULTADOS_202110531.json', 'w') as error_file:
         for index, error in enumerate(ErrorList):
             error_dict['errors'].append({
                 "No.": index + 1,

@@ -14,7 +14,7 @@ class MainMenu():
     def __init__(self) -> None:
         self.mainMenu.title("Menu Principal") # title
         self.mainMenu.geometry("1150x740") # width x height
-        self.mainMenu.config(bg="#1E1E1E") # bg = background
+        self.mainMenu.config(bg="#93E1D8") # bg = background #1E1E1E
         self.mainMenu.iconbitmap(os.path.abspath("assets/usac_logo.ico")) # icon
         self.mainMenu.resizable(0,0)
         self.originalPath = ""
@@ -29,8 +29,8 @@ class MainMenu():
             self.mainMenu, 
             text="Aplicación Numérica con Análisis Léxico",
             font=titleFont,
-            bg="#1E1E1E",
-            fg="white",
+            bg="#93E1D8",
+            fg="black",
         ).grid(
             row=0,
             column=0,
@@ -82,18 +82,17 @@ class MainMenu():
             column=3,
         )
         
-        self.emptyRow2 = Label(self.mainMenu, text="", bg="#1E1E1E", fg="white")
+        self.emptyRow2 = Label(self.mainMenu, text="", bg="#93E1D8", fg="white")
         self.emptyRow2.grid(row=3, column=0, columnspan=10, ipadx=5, ipady=5)
         
-        
-        self.editor = Text(self.mainMenu, width=150, height=25, bg="white", fg="black", font=("Arial", 10))
+        self.editor = Text(self.mainMenu, width=150, height=25, bg="#DDFFF7", fg="black", font=("Arial", 10))
         self.editor.grid(row=4, column=0, columnspan=10, padx=5, ipadx=5, ipady=5)
         
-        self.emptyRow = Label(self.mainMenu, text="", bg="#1E1E1E", fg="white")
+        self.emptyRow = Label(self.mainMenu, text="", bg="#93E1D8", fg="white")
         self.emptyRow.grid(row=5, column=0, columnspan=10, ipadx=5, ipady=5)
         
         # block the console
-        self.console = Text(self.mainMenu, width=150, height=7, bg="black", fg="white", state="disabled", font=("Arial", 10))
+        self.console = Text(self.mainMenu, width=150, height=7, bg="black", fg="#96E2D9", state="disabled", font=("Arial", 10))
         self.console.grid(row=6, column=0, columnspan=10, padx=5, ipadx=5, ipady=5)
 
 

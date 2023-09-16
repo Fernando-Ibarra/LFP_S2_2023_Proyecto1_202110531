@@ -18,27 +18,27 @@ class Operation:
 
         out = ""
 
-        out += "("
+        out += "["
         if isinstance(self.value1, Operation):
             out += self.value1.traverse()
         else:
             out += str(self.value1)
 
-        out += ")"
+        out += "]"
         
         try:
             out += self.operation
         except:
             print("Error", str(self))
-            out+="xxxx"
+            out+="---"
 
-        out +="("
+        out +="["
         if isinstance(self.value2, Operation):
             out += self.value2.traverse()
         else:
             out += str(self.value2)
 
-        out += ")"
+        out += "]"
 
         return out
 
@@ -79,7 +79,10 @@ class Operation:
             res = val1 ** val2
         
         if typeOperation == "raiz":
-            res = np.sqrt(val1)
+            if val2 is None:
+                res = np.sqrt(val1)
+            else:
+                res = val1 ** (1/val2)            
             
         if typeOperation == "inverso":
             res = 1 / val1
