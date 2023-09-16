@@ -35,7 +35,7 @@ Donde:
 - `#9` = Número con punto decimal
 
 ### Método del Árbol
-![Método del árbol]("../assets/Proyecto1-arbol.jpg")
+![Método del árbol](../assets/Proyecto1-arbol.jpg)
 
 ### Tabla de Siguiente Posición
 | Nodo  | Siguiente Posición |
@@ -118,7 +118,7 @@ $$Trans\left( S_{11}, N \right) = sig \left(24 \right) = \left\{ 25,26 \right\} 
 $$Trans\left( S_{12}, N \right) = sig \left(25 \right) = \left\{26 \right\} =S_{12}$$
 
 ### AFD
-![AFD]("../assets/AFD.jpg")
+![AFD](../assets/AFD.jpg)
 
 ## Controller
 En esta sección se encuentra la lógica del programa, la cual se encarga de la lectura del archivo, la creación de los objetos, la ejecución de las instrucciones y la generación de los archivos de salida.
