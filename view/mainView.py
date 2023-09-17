@@ -129,7 +129,7 @@ class MainMenu():
         try:
             processErrors()
             dir_path = os.path.dirname(os.path.realpath(__file__))
-            self.setConsole("Archivo de errores generado correctamente: " + dir_path.replace("\\view", '') + "\errors.json" + "\n")
+            self.setConsole("Archivo de errores generado correctamente: " + dir_path.replace("\\view", '') + "\RESULTADOS_202110531.json" + "\n")
         except:
             messagebox.showinfo(title="Aviso", message="Ocurrio un error al generar el archivo de errores")
         
