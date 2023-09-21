@@ -12,7 +12,12 @@
                 {
                     "operacion": "potencia",
                     "valor1": 10,
-                    "valor2": 3
+                    "valor2": [
+                        {
+                            "operacion": "tangente",
+                            "valor1": 45
+                        }
+                    ]
                 }
             ]
         },
@@ -22,10 +27,27 @@
             "valor1": [
                 {
                     "operacion": "seno",
-                    "valor1": 90
+                    "valor1": [
+                        {
+                            "operacion": "multiplicacion",
+                            "valor1": 15,
+                            "valor2": 3
+                        }
+                    ]
                 }
             ],
-            "valor2": 5.32
+            "valor2": [
+                {
+                    "operacion": "coseno",
+                    "valor1": [
+                        {
+                            "operacion": "suma",
+                            "valor1": 90,
+                            "valor2": 45
+                        }
+                    ]
+                }
+            ]
         },
         {
             "operacion": "multiplicacion",
@@ -34,8 +56,19 @@
         },
         {
             "operacion": "division",
-            "valor1": 15,
-            "valor2": 3
+            "valor1": [
+                {
+                    "operacion": "inverso",
+                    "valor1": 90
+                }
+            ],
+            "valor2": [
+                {
+                    "operacion": "mod",
+                    "valor1": 45,
+                    "valor2": 34
+                }
+            ]
         }
     ],
     "configuraciones": [

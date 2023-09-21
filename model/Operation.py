@@ -79,10 +79,7 @@ class Operation:
             res = val1 ** val2
         
         if typeOperation == "raiz":
-            if val2 is None:
-                res = np.sqrt(val1)
-            else:
-                res = val1 ** (1/val2)            
+            res = val1 ** (1/val2)         
             
         if typeOperation == "inverso":
             res = 1 / val1
